@@ -23,7 +23,8 @@ app.post("/spumember/collectpoints", (req: Request, res: Response) => {
   }else{
     let studentId = stdId;
     let getPoints = amount/100;
-    points = points + getPoints;
+    let studentPoints = points + getPoints;
+    points = points + getPoints; 
 
     res.status(200).json({
       status: 200,
@@ -31,7 +32,7 @@ app.post("/spumember/collectpoints", (req: Request, res: Response) => {
       data: {
         studentId,
         getPoints,
-        points
+        studentPoints
       }
     });
   }
