@@ -22,7 +22,7 @@ app.post("/spumember/collectpoints", (req: Request, res: Response) => {
     });
   }else{
     let studentId = stdId;
-    let getPoints = amount/100;
+    let getPoints = (amount/100) * 10;
     let studentPoints = points + getPoints;
     points = points + getPoints; 
 
