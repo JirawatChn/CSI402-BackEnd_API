@@ -13,7 +13,7 @@ app.use(helmet());
 
 const points = 1000;
 
-app.post("/spumember/reward", (req: Request, res: Response) => {
+app.post("/spumember/collectpoints", (req: Request, res: Response) => {
   const { studentId,amount } = req.body;
   if(!studentId || !amount) {
     res.status(400).json({
@@ -22,7 +22,8 @@ app.post("/spumember/reward", (req: Request, res: Response) => {
     });
   }else{
 
-    let getPoints = points + (amount/100)
+    let getPoints = amount/100;
+    let studentPoints = points + getPoints;
 
     res.status(200).json({
       status: 200,
@@ -30,7 +31,7 @@ app.post("/spumember/reward", (req: Request, res: Response) => {
       data: {
         studentId,
         getPoints,
-        points
+        studentPoints
       }
     });
   }
